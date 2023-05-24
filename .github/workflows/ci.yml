@@ -8,7 +8,7 @@ on:
 env:
   HOME: /home/runner/work/ecommerce-workshop-advertisement/ecommerce-workshop-advertisement
   REPO: ecommerce-workshop-advertisement-manifests
-  GIT_USERNAME: dd-shocnt
+  GIT_USERNAME: koheisato-dd
 
 jobs:
   docker:
