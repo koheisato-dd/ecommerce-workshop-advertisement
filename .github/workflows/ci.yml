@@ -60,12 +60,12 @@ jobs:
         run: | 
           cd ${{ env.HOME }}/${{ env.REPO }}/overlays/staging
           sed -i -e 's/tags.datadoghq.com\/version: .*/tags.datadoghq.com\/version: "${{ github.sha }}"/' rollout-patch.yaml
-          sed -i -e 's/- image: "shocnt\/ads-service:.*"/- image: "shocnt\/ads-service:${{ github.sha }}"/' rollout-patch.yaml
+          sed -i -e 's/- image: "koheisato0714\/ads-service:.*"/- image: "koheisato0714\/ads-service:${{ github.sha }}"/' rollout-patch.yaml
           cat rollout-patch.yaml
           
           cd ${{ env.HOME }}/${{ env.REPO }}/overlays/prod
           sed -i -e 's/tags.datadoghq.com\/version: .*/tags.datadoghq.com\/version: "${{ github.sha }}"/' rollout-patch.yaml
-          sed -i -e 's/- image: "shocnt\/ads-service:.*"/- image: "shocnt\/ads-service:${{ github.sha }}"/' rollout-patch.yaml
+          sed -i -e 's/- image: "koheisato0714\/ads-service:.*"/- image: "koheisato0714\/ads-service:${{ github.sha }}"/' rollout-patch.yaml
           sed -i -e 's/{name: version, value: .*}/{name: version, value: "${{ github.sha }}"}/' rollout-patch.yaml
           cat rollout-patch.yaml
           
@@ -79,5 +79,5 @@ jobs:
           git status
           git add ${{ env.HOME }}/${{ env.REPO }}/overlays/staging/rollout-patch.yaml
           git add ${{ env.HOME }}/${{ env.REPO }}/overlays/prod/rollout-patch.yaml
-          git commit -m "Updated manifests for the commit https://github.com/dd-shocnt/ecommerce-workshop-advertisement/commit/${{ github.sha }}"
+          git commit -m "Updated manifests for the commit https://github.com/koheisato-dd/ecommerce-workshop-advertisement/commit/${{ github.sha }}"
           git push origin deploy/${{ github.sha }}
